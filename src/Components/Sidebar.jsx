@@ -104,7 +104,6 @@ function Sidebar() {
         </div>
         <div className="chats__container">
             <Chats/>
-
         </div>
     </div>
   )

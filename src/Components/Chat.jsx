@@ -1,39 +1,21 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './Chat.scss'
 import Message from './Message'
 import SendIcon from '@mui/icons-material/Send';
 import AttachFileIcon from '@mui/icons-material/AttachFile';
+import { ChatContext } from '../Context/ChatContext';
 
 function Chat() {
+
+    const { data } = useContext(ChatContext);
+    const { user } = data;
+
   return (
     <div className='chat__home'>
         <div className="header__chat">
-            <span>Arsh</span>
+            <span>{user.displayName}</span>
         </div>
         <div className="message__container">
-            <Message/>
-            <Message/>
-            <Message/>
-            <Message/>
-            <Message/>
-            <Message/>
-            <Message/>
-            <Message/>
-            <Message/>
-            <Message/>
-            <Message/>
-            <Message/>
-            <Message/>
-            <Message/>
-            <Message/>
-            <Message/>
-            <Message/>
-            <Message/>
-            <Message/>
-
-            <Message/>
-            <Message/>
-            <Message/>
             <Message/>
             <Message/>
             <Message/>
