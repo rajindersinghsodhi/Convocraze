@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import logo from '../appLogo.png';
 import './Chats.scss'
 
 function Chats() {
+
   return (
     <div className='chats'>
       <img src={logo} alt="" />
