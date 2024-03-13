@@ -1,0 +1,13 @@
+.chats{
+    display: flex;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid grey;
+
+    > img {
+        height: 30px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin: 0 10px;
+    }
+}
