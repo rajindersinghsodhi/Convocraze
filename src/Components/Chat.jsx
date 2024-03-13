@@ -22,9 +22,24 @@ function Chat() {
             <Message/>
             <Message/>
             <Message/>
+            <Message/>
+            <Message/>
+            <Message/>
+            <Message/>
+            <Message/>
+            <Message/>
+            <Message/>
+            <Message/>
+
+            <Message/>
+            <Message/>
+            <Message/>
+            <Message/>
+            <Message/>
+            <Message/>
         </div>
         <div className="input__chat">
-            <input type="text" />
+            <input type="text" placeholder='Type a message'/>
             <input style={{display: "none"}} type="file" id='file'/>
                 <label htmlFor="file">
                     <AttachFileIcon/>
