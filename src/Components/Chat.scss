@@ -63,3 +63,51 @@
         cursor: pointer;
     }
 }
+
+@media only screen and (max-width: 1500px){
+    .chat__home{
+        flex: 3;
+    }
+}
+
+@media only screen and (max-width: 1000px){
+    .chat__home{
+        flex: 2;
+    }
+}
+
+@media only screen and (max-width: 650px){
+    .chat__home{
+        height: 100vh;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    .header__chat{
+        border-top-right-radius: 0;
+    }
+
+    .message__container{
+        border-bottom-right-radius: 0;
+        top: 5%;
+        height: 95%;
+    }
+}
+
+@media only screen and (max-width: 600px){
+    .chat__home{
+        flex: 4;
+    }
+}
+
+@media only screen and (max-width: 500px){
+    .chat__home{
+        flex: 6;
+    }
+}
+
+@media only screen and (max-width: 300px){
+    .chat__home{
+        flex: 4;
+    }
+}

@@ -24,6 +24,8 @@
     position: absolute;
     top: 15%;
     margin-top: 5px;
+    height: 100%;
+
 }
 
 .user__information{
@@ -70,4 +72,61 @@
 
 .chats__container::-webkit-scrollbar{
     display: none;
+}
+
+@media only screen and (max-width: 650px){
+    .sidebar__home{
+        height: 100vh;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+
+    .header__sidebar{
+        border-radius: 0;
+    }
+    .chats__container{
+        height: 100%;
+    }
+}
+
+@media only screen and (max-width: 600px){
+    .header__sidebar{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .chats__container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .user__information{
+        width: 100%;
+        > img {
+            display: none;
+        }
+
+        > span {
+            display: none;
+        } 
+
+        > button {
+            position: static;
+            width: 100%;
+            margin: 10px;
+        }
+    }
+}
+
+
+@media only screen and (max-width: 500px){
+    .search__input{
+        display: none;
+    }
+
+    .chats__container{
+        top: 7%;
+    }
 }

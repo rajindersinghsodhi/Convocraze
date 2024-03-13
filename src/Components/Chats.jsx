@@ -6,7 +6,7 @@ function Chats() {
   return (
     <div className='chats'>
       <img src={logo} alt="" />
-      <span>Rajinder</span>
+      <span id='title__chats'>Rajinder</span>
     </div>
   )
 }

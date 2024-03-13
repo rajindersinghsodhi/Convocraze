@@ -2,3 +2,21 @@
     display: flex;
     margin: 50px 300px;
 }
+
+@media only screen and (max-width: 1400px){
+    .home{
+        margin: 50px 100px;
+    }
+}
+
+@media only screen and (max-width: 1000px){
+    .home{
+        margin: 50px 20px;
+    }
+}
+
+@media only screen and (max-width: 650px){
+    .home{
+        margin: 0;
+    }
+}
