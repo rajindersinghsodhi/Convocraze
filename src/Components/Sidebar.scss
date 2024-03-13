@@ -23,7 +23,7 @@
 
 .chats__container{
     position: absolute;
-    top: 15%;
+    top: 24%;
     margin-top: 5px;
     height: 100%;
 
@@ -54,10 +54,11 @@
 .search__input{
     position: absolute;
     top: 12%;
-    width: 90%;
+    width: 100%;
+    border-bottom: 1px solid black ;
 
     > input {
-        width: 100%;
+        width: 80%;
         margin: 0 10px;
         border: none;
         border-bottom: 1px solid rgb(0, 0, 0) ;
@@ -130,4 +131,16 @@
     .chats__container{
         top: 7%;
     }
+}
+
+.userChat{
+    display: flex;
+    padding: 15px;
+
+    > img {
+        height: 25px;
+        border-radius: 50%;
+        margin-right: 10px ;
+    }
+
 }
