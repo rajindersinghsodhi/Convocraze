@@ -35,8 +35,8 @@ function Chats() {
 
   return (
     <div className='chats'>
-      {chats && Object.entries(chats).map((chat, index) => (
-        <div className='user__chats' key={index} onClick={()=>handleSelect(chat)}>
+      {chats && Object.entries(chats).map(([key, chat]) => (
+        <div className='user__chats' key={key} onClick={()=>handleSelect(chat)}>
           {chat.userInfo && (
             <>
               <img src={chat.userInfo.photoURL} alt="" />
