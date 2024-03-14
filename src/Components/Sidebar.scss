@@ -1,0 +1,142 @@
+.sidebar__home{
+    position: relative;
+    flex: 1;
+    background-color: White;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    overflow: hidden;
+    height: 95vh;
+    border: 1px solid black;
+}
+
+.header__sidebar{
+    position: absolute;
+    border-top-left-radius: 10px;
+    overflow: hidden;
+    background-color: #384259;
+    height: 50px;
+    width: 100%;
+    padding: 10px 0 10px;
+    color: white;
+    z-index: 999;
+}
+
+.container__sidebar{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    position: absolute;
+    top: 13%;
+}
+
+.userChat{
+    display: flex;
+    padding: 15px;
+    cursor: pointer;
+
+    > img {
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        margin-right: 10px ;
+    }
+
+}
+
+.user__information{
+    display: flex;
+    align-items: center;
+
+    > img{
+        height: 40px;
+        width: 40px;
+        margin: 10px;
+        border-radius: 50%;
+        object-fit: cover;
+        cursor: pointer;
+    }
+
+    > button {
+        position: absolute;
+        right: 10px;
+        border: none;
+        background-color: white;
+        cursor: pointer;
+        border-radius: 5px;
+        padding: 5px;
+    }
+}
+
+.search__input{
+    width: 100%;
+    margin-bottom: 10px;
+    > input {
+        width: 80%;
+        margin: 0 10px;
+        border: none;
+        border-bottom: 1px solid rgb(0, 0, 0) ;
+        outline: none;
+    }
+}
+
+.chats__container::-webkit-scrollbar{
+    display: none;
+}
+
+@media only screen and (max-width: 650px){
+    .sidebar__home{
+        height: 100vh;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+
+    .header__sidebar{
+        border-radius: 0;
+    }
+    .chats__container{
+        height: 100%;
+    }
+}
+
+@media only screen and (max-width: 600px){
+    .header__sidebar{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .chats__container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .user__information{
+        width: 100%;
+        > img {
+            display: none;
+        }
+
+        > span {
+            display: none;
+        } 
+
+        > button {
+            position: static;
+            width: 100%;
+            margin: 10px;
+        }
+    }
+}
+
+
+@media only screen and (max-width: 500px){
+    .search__input{
+        display: none;
+    }
+
+    .chats__container{
+        top: 7%;
+    }
+}
+

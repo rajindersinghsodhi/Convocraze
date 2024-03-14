@@ -1,0 +1,10 @@
+body{
+    // background-color: #2079b6a8;
+    overflow-y: hidden;
+}
+
+@media only screen and (max-width: 650px){
+    body{
+        background-color: white;
+    }
+}

@@ -1,0 +1,21 @@
+.user__chats{
+    display: flex;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid grey;
+    cursor: pointer;
+
+    > img {
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin: 0 10px;
+    }
+}
+
+@media only screen and (max-width: 600px){
+    #title__chats{
+        display: none;
+    }
+}

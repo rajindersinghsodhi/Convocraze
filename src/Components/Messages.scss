@@ -1,0 +1,39 @@
+.messages{
+    display: flex;
+    align-items: center;
+    margin: 10px;
+}
+
+.info__messages{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    > img {
+        height: 30px;
+        border-radius: 50%;
+        margin: 10px;
+    }
+
+    > span{
+        font-weight: lighter;
+        font-size: 10px;
+        justify-content: center;
+    }
+}
+
+.content__messages{
+    padding: 10px;
+    background-color: #cacac6;
+    border-radius: 10px;
+    max-width: 60%;
+
+    > p {
+        word-wrap: break-word;
+    }
+
+    > img {
+        max-height: 200px;
+    }
+
+}
