@@ -10,7 +10,7 @@ function Message() {
         <span>Just Now</span>
       </div>
       <div className="content__messages">
-        <p>I am here!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</p>
+        <p>Hi Humanli.ai, its a test</p>
         {/* <img src={logo} alt="" /> */}
       </div>
     </div>

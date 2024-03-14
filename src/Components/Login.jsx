@@ -36,7 +36,7 @@ function Login() {
                 <button>Login</button>
                 {err && <span>Something went wrong</span>}
             </form>
-            <p>Don't have an account? <Link>Register Here</Link></p>
+            <p>Don't have an account? <Link to='/register'>Register Here</Link></p>
         </div>
     </div>
   )

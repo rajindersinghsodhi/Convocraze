@@ -74,10 +74,10 @@ function Register() {
             <AddPhotoAlternateIcon />
             <span>Add Profile Picture</span>
           </label>
-          <button>Sign Up</button>
+          {loading ? <div>Registering...</div> : <button>Sign Up</button>}
           {err && <span>Something went wrong</span>}
         </form>
-        <p>Already have an account? <Link>Login Now</Link></p>
+        <p>Already have an account? <Link to='/login'>Login Now</Link></p>
       </div>
     </div>
   );

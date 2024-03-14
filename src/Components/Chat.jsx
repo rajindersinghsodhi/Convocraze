@@ -23,8 +23,8 @@ function Chat() {
         <div className="input__chat">
             <input type="text" placeholder='Type a message'/>
             <input style={{display: "none"}} type="file" id='file'/>
-                <label htmlFor="file">
-                    <AttachFileIcon/>
+                <label htmlFor="file" id='attachmemnt'>
+                    <AttachFileIcon id='attachmemnt'/>
                 </label>
             <SendIcon/>
         </div>

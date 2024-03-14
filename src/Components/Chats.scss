@@ -3,9 +3,11 @@
     align-items: center;
     padding: 20px 0;
     border-bottom: 1px solid grey;
+    cursor: pointer;
 
     > img {
-        height: 30px;
+        height: 40px;
+        width: 40px;
         border-radius: 50%;
         object-fit: cover;
         margin: 0 10px;
