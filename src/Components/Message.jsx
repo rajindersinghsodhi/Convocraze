@@ -18,15 +18,32 @@ function Message({ message }) {
   }
 
   const isCurrentUserMessage = message.senderId === currentUser.uid;
-  const messageClass = isCurrentUserMessage ? 'messages_sent' : 'content__messages';
+  const texClass = isCurrentUserMessage ? 'text_sent' : 'text__recieved';
+  const messageClass = isCurrentUserMessage ? 'message' : 'message__recieved';
+
+  // console.log(message.date);
+
+  const formatTime = (timestamp) => {
+    try {
+      // Convert Firebase Timestamp to JavaScript Date object
+      const date = timestamp.toDate();
+
+      // Format time using JavaScript Date object
+      const options = { hour: 'numeric', minute: 'numeric' };
+      return date.toLocaleTimeString(undefined, options);
+    } catch (error) {
+      console.error('Error formatting time:', error);
+      return ''; // Return empty string in case of error
+    }
+  };
 
   return (
-    <div className='messages' ref={ref}>
+    <div className={messageClass} ref={ref}>
       <div className="info__messages">
         <img src={isCurrentUserMessage ? currentUser.photoURL : data.user.photoURL} alt="" />
-        <span>Just Now</span>
+        <span>{formatTime(message.date)}</span>
       </div>
-      <div className={messageClass}>
+      <div className={texClass}>
         <p>{message.text}</p>
       </div>
     </div>
