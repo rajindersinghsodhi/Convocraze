@@ -1,20 +1,36 @@
-import React from 'react'
-import logo from '../appLogo.png';
-import './Messages.scss'
+import React, { useContext, useEffect, useRef } from 'react';
+import './Messages.scss';
+import { AuthContext } from '../Context/AuthContext';
+import { ChatContext } from '../Context/ChatContext';
 
-function Message() {
+function Message({ message }) {
+  const { currentUser } = useContext(AuthContext);
+  const { data } = useContext(ChatContext);
+
+  const ref = useRef();
+
+  useEffect(() => {
+    ref.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [message]);
+
+  if (!message) {
+    return null;
+  }
+
+  const isCurrentUserMessage = message.senderId === currentUser.uid;
+  const messageClass = isCurrentUserMessage ? 'messages_sent' : 'content__messages';
+
   return (
-    <div className='messages'>
+    <div className='messages' ref={ref}>
       <div className="info__messages">
-        <img src={logo} alt="" />
+        <img src={isCurrentUserMessage ? currentUser.photoURL : data.user.photoURL} alt="" />
         <span>Just Now</span>
       </div>
-      <div className="content__messages">
-        <p>Hi Humanli.ai, its a test</p>
-        {/* <img src={logo} alt="" /> */}
+      <div className={messageClass}>
+        <p>{message.text}</p>
       </div>
     </div>
-  )
+  );
 }
 
-export default Message
+export default Message;

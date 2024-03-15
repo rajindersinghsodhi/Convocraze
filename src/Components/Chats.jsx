@@ -27,7 +27,8 @@ function Chats() {
     };
       console.log(Object.entries(chats))
     currentUser.uid && getChats();
-  }, [currentUser.uid, chats]);
+    // eslint-disable-next-line
+  }, [currentUser.uid]);
 
   const handleSelect = (chat) => {
     dispatch({type:"CHANGE_USER", payload: chat.userInfo})
@@ -35,12 +36,15 @@ function Chats() {
 
   return (
     <div className='chats'>
-      {chats && Object.entries(chats).map(([key, chat]) => (
+      {chats && Object.entries(chats)?.sort((a,b)=>b[1].date - a[1].date).map(([key, chat]) => (
         <div className='user__chats' key={key} onClick={()=>handleSelect(chat)}>
           {chat.userInfo && (
             <>
               <img src={chat.userInfo.photoURL} alt="" />
+              <div className="user__info">
               <span id='title__chats'>{chat.userInfo.displayName}</span>
+              <span id='lastMessage'>{chat?.lastMessage?.text}</span>
+              </div>
             </>
           )}
         </div>

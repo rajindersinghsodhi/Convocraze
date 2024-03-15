@@ -9,7 +9,7 @@ import { doc, setDoc } from "@firebase/firestore";
 import { Link, useNavigate } from "react-router-dom";
 
 function Register() {
-  const [err, setErr] = useState(false);
+  const [err, setErr] = useState(null); 
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
@@ -22,22 +22,22 @@ function Register() {
     const file = e.target[3].files[0];
 
     try {
-      //Create user
+      
       const res = await createUserWithEmailAndPassword(auth, email, password);
 
-      //Create a unique image name
+      
       const date = new Date().getTime();
       const storageRef = ref(storage, `${displayName + date}`);
 
       await uploadBytesResumable(storageRef, file).then(() => {
         getDownloadURL(storageRef).then(async (downloadURL) => {
           try {
-            //Update profile
+            
             await updateProfile(res.user, {
               displayName,
               photoURL: downloadURL,
             });
-            //create user on firestore
+            
             await setDoc(doc(db, "users", res.user.uid), {
               uid: res.user.uid,
               displayName,
@@ -45,21 +45,23 @@ function Register() {
               photoURL: downloadURL,
             });
 
-            //create empty user chats on firestore
+     
             await setDoc(doc(db, "userChats", res.user.uid), {});
             navigate("/");
           } catch (err) {
-            console.log(err);
-            setErr(true);
+            console.error(err); 
+            setErr(err.message.split(": ")[1]); 
             setLoading(false);
           }
         });
       });
     } catch (err) {
-      setErr(true);
+      console.error(err); 
+      setErr(err.message.split(": ")[1]); 
       setLoading(false);
     }
   };
+
   return (
     <div className="container">
       <img src={logo} alt="" />
@@ -75,9 +77,11 @@ function Register() {
             <span>Add Profile Picture</span>
           </label>
           {loading ? <div>Registering...</div> : <button>Sign Up</button>}
-          {err && <span>Something went wrong</span>}
+          {err && <span>{err}</span>}
         </form>
-        <p>Already have an account? <Link to='/login'>Login Now</Link></p>
+        <p>
+          Already have an account? <Link to="/login">Login Now</Link>
+        </p>
       </div>
     </div>
   );
