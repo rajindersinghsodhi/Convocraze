@@ -43,9 +43,16 @@ function Message({ message }) {
         <img src={isCurrentUserMessage ? currentUser.photoURL : data.user.photoURL} alt="" />
         <span>{formatTime(message.date)}</span>
       </div>
-      <div className={texClass}>
-        <p>{message.text}</p>
-      </div>
+      {message.text && (
+        <div className={texClass}>
+          <p>{message.text}</p>
+        </div>
+      )}
+      {message.img && (
+        <div id='image__message'>
+          <img src={message.img} alt="" />
+        </div>
+      )}
     </div>
   );
 }

@@ -25,7 +25,7 @@ function Chats() {
         unsub();
       };
     };
-      console.log(Object.entries(chats))
+      // console.log(Object.entries(chats))
     currentUser.uid && getChats();
     // eslint-disable-next-line
   }, [currentUser.uid]);

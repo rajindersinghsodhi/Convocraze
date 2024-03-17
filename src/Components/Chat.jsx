@@ -27,53 +27,64 @@ function Chat() {
 
 
     const handleSend = async () => {
-        if(img) {
+        if (img) {
             const storageRef = ref(storage, uuid());
             const uploadTask = uploadBytesResumable(storageRef, img);
-
+    
             uploadTask.on(
+                "state_changed",
+                (snapshot) => {
+                    // Handle progress or other state changes if needed
+                },
                 (error) => {
-
+                    console.error("Error uploading image:", error);
+                    // Handle the error if upload fails
                 },
                 () => {
-                    getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
-                        await updateDoc(doc(db, "chats", data.chatId), {
-                            messages: arrayUnion({
-                                id: uuid(),
-                                text,
-                                senderId: currentUser.uid,
-                                date: Timestamp.now(),
-                                img: downloadURL,
-                            })
+                    // Upload completed successfully, get the download URL
+                    getDownloadURL(uploadTask.snapshot.ref)
+                        .then(async (downloadURL) => {
+                            await updateDoc(doc(db, "chats", data.chatId), {
+                                messages: arrayUnion({
+                                    id: uuid(),
+                                    text,
+                                    senderId: currentUser.uid,
+                                    date: Timestamp.now(),
+                                    img: downloadURL,
+                                }),
+                            });
+                        })
+                        .catch((error) => {
+                            console.error("Error getting download URL:", error);
+                            // Handle error getting download URL if needed
                         });
-                    })
                 }
-            )
-        }else{
+            );
+        } else {
             await updateDoc(doc(db, "chats", data.chatId), {
                 messages: arrayUnion({
                     id: uuid(),
                     text,
                     senderId: currentUser.uid,
                     date: Timestamp.now(),
-                })
+                }),
             });
         }
-
+    
         await updateDoc(doc(db, "userChats", currentUser.uid), {
-            [data.chatId + ".lastMessage"]:{
+            [data.chatId + ".lastMessage"]: {
                 text,
             },
             [data.chatId + ".date"]: serverTimestamp(),
         });
-
+    
         await updateDoc(doc(db, "userChats", data.user.uid), {
-            [data.chatId + ".lastMessage"]:{
+            [data.chatId + ".lastMessage"]: {
                 text,
             },
             [data.chatId + ".date"]: serverTimestamp(),
         });
-
+    
         setText("");
         setImg(null);
     };
@@ -90,7 +101,7 @@ function Chat() {
         }
     }, [data.chatId])
     
-    console.log(messages)
+    // console.log(messages)
 
   return (
     <div className='chat__home'>
