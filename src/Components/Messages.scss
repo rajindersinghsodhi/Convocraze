@@ -16,6 +16,10 @@
     background-color: green;
     border-radius: 10px;
     max-width: 60%;
+    
+    > p {
+        overflow-wrap: break-word;
+    }
 }
 
 .info__messages{

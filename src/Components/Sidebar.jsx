@@ -20,9 +20,13 @@ import LogoutIcon from '@mui/icons-material/Logout';
 
 function Sidebar() {
   const [username, setUsername] = useState("");
-  const [users, setUsers] = useState([]); // Define setUsers here
+  const [users, setUsers] = useState([]); 
   const [err, setErr] = useState(false);
   const { currentUser } = useContext(AuthContext);
+
+  const handleKey = (e) => {
+    e.code === "Enter" && handleSearch();
+  };
 
   const handleSearch = async () => {
     const q = query(
@@ -37,16 +41,14 @@ function Sidebar() {
         foundUsers.push(doc.data());
       });
       setUsers(foundUsers);
-      setErr(false); // Reset error state when new search is made
+      setErr(false); 
     } catch (err) {
       console.error("Error searching for users:", err);
       setErr(true);
     }
   };
 
-  const handleKey = (e) => {
-    e.code === "Enter" && handleSearch();
-  };
+
 
   const handleSelect = async (selectedUser) => {
     const combineId =
@@ -91,7 +93,6 @@ function Sidebar() {
       console.error("Error selecting user:", err);
     }
 
-    // Reset state after selection
     setUsername("");
     setUsers([]);
   };
