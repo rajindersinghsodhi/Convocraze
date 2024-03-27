@@ -21,16 +21,8 @@ To run this apllication on your device, you can just follow below steps:
 # Move to project directory
    ```html
    cd cd Convocraze
-=======
-# Move to project directory
-   ```html
-   cd Convocraze
    ```
-# Run web application
-   ```html
-   npm start
-   ```
-
+   
 # Run the web application 
    ```html
    npm start
