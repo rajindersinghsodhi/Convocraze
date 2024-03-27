@@ -1,32 +1,47 @@
 .sidebar__home{
     position: relative;
     flex: 1;
-    background-color: White;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-    overflow: hidden;
-    height: 95vh;
-    border: 1px solid black;
+    background-color: whitesmoke;
+    height: 100vh;
 }
 
 .header__sidebar{
     position: absolute;
-    border-top-left-radius: 10px;
     overflow: hidden;
-    background-color: #384259;
+    background-color: #0d9ee7;
     height: 50px;
     width: 100%;
     padding: 10px 0 10px;
     color: white;
     z-index: 999;
+    display: flex;
+}
+
+.content__container{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 10%;
+    width: 100%;
+    overflow: scroll;
+}
+
+.content__container::-webkit-scrollbar{
+    display: none;
 }
 
 .container__sidebar{
     display: flex;
-    width: 100%;
     flex-direction: column;
-    position: absolute;
-    top: 13%;
+    padding-top: 8px;
+    align-items: center;
+    justify-content: flex-start;
+    margin-left: 12px;
+    max-width: 100%;
+}
+
+.search__result{
+    width: 100%;
 }
 
 .userChat{
@@ -35,13 +50,22 @@
     cursor: pointer;
 
     > img {
-        height: 40px;
-        width: 40px;
+        height: 50px;
+        width: 60px;
         border-radius: 50%;
         margin-right: 10px ;
     }
 
 }
+
+.userChatInfo{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
 
 .user__information{
     display: flex;
@@ -67,23 +91,30 @@
 }
 
 .search__input{
-    width: 100%;
-    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    width: 90%;
+    gap: 10px;
+    > svg {
+        color: gray;
+    }
     > input {
-        width: 85%;
-        margin: 0 10px;
         border: none;
-        // border-bottom: 1px solid rgb(0, 0, 0) ;
         outline: none;
-        background-color: whitesmoke;
+        background-color: white;
         border-radius: 10px;
-        padding: 7px;
+        padding: 10px;
+        width: 100%;
     }
 }
 
-.chats__container::-webkit-scrollbar{
-    display: none;
+.chats__container{
+    max-height: calc(100vh - 130px);
 }
+
+// .chats__container::-webkit-scrollbar{
+//     display: none;
+// }
 
 @media only screen and (max-width: 650px){
     .sidebar__home{

@@ -17,6 +17,8 @@ import {
   getDoc,
 } from "firebase/firestore";
 import LogoutIcon from '@mui/icons-material/Logout';
+import PersonAddOutlinedIcon from '@mui/icons-material/PersonAddOutlined';
+import SearchIcon from '@mui/icons-material/Search';
 
 function Sidebar() {
   const [username, setUsername] = useState("");
@@ -106,15 +108,19 @@ function Sidebar() {
           <LogoutIcon onClick={() => signOut(auth)}/>
         </div>
       </header>
+      <div className="content__container">
       <div className="container__sidebar">
         <div className="search__input">
+          <SearchIcon/>
           <input
             type="text"
-            placeholder="Search"
+            placeholder="Search a user"
             onKeyDown={handleKey}
             onChange={(e) => setUsername(e.target.value)}
             value={username}
           />
+        </div>
+        <div className="search__result">
           {err && <span>User not found</span>}
           {users.length > 0 &&
             users.map((user) => (
@@ -126,14 +132,15 @@ function Sidebar() {
                 <img src={user.photoURL} alt="" />
                 <div className="userChatInfo">
                   <span>{user.displayName}</span>
+                  <PersonAddOutlinedIcon/>
                 </div>
               </div>
             ))}
-        </div>
-        <hr />
-        <div className="chats__container">
+          </div>
+      </div>
+      <div className="chats__container">
           <Chats />
-        </div>
+      </div>
       </div>
     </div>
   );
