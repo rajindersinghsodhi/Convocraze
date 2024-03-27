@@ -66,7 +66,7 @@ function Register() {
     <div className="container">
       <img src={logo} alt="" />
       <div className="form__container">
-        <span className="form__title">Register</span>
+        <span className="form__title">Create a new account</span>
         <form onSubmit={handleSubmit}>
           <input type="text" placeholder="Your name here" />
           <input type="email" placeholder="Email" />

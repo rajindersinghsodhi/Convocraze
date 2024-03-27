@@ -28,7 +28,7 @@ function Login() {
     <div className='container'>
         <img src={logo} alt="" />
         <div className='form__container'>
-            <span className='form__title'>Login Now</span>
+            <span className='form__title'>Login to Convocraze</span>
             <form onSubmit={handleSubmit}>
                 <input type="email" placeholder='Email'/>
                 <input type="password" placeholder='Password' />
