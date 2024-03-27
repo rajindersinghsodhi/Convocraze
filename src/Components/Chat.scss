@@ -35,7 +35,8 @@
     height: 82%;
     border-bottom-right-radius: 10px;
     overflow: scroll;
-    background-color: transparent;
+    background-image: url(../chat__background.png);
+    background-size: contain;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
 }
