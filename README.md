@@ -10,16 +10,16 @@
 To run this apllication on your device, you can just follow below steps:
 
 # Clone the repository using below git command
-
+   ```html
    git clone https://github.com/rajindersinghsodhi/Convocraze.git
-
+   ```
 # Install project dependencies
 
    npm install 
 
 # Move to project directory
  
-   cd cd Convocraze
+   cd Convocraze
 
 # Run the web application 
    
